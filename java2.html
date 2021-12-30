@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript - M Jaisy Adli</title>
+</head>
+<body>
+    <form name="form">
+        <div class="container">
+            <h1 id="title">Mata Uang</h1>
+            <table id="tabel">
+                <tr>
+                    <td><label for="nilai">Nilai</label></td>
+                    <td>Mata Uang </td>
+                    <td><label for="kurs">Hasil Kurs dalam Rupiah</label></td>
+                    
+                </tr>
+                <tr>
+                    <td><input type="text" name="nilai" autocomplete="0" onchange="konversiuang()"></td>
+                    <td>
+                        <select name="uangasing" id="uang" onchange="konversiuang()">
+                            <option value="pilih">-- Pilih Mata Uang Asing --</option>
+                            <option value="USD">United State Dollar</option>
+                            <option value="SGD">Singapore Dollar</option>
+                            <option value="MLY">Ringgit Malaysia</option>
+                            <option value="EURO">Euro</option>
+                            <option value="RAS">Riyal Arab Saudi</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="kurs"></td>
+                </tr>
+            </table>
+        </div>
+    <script>
+        function konversiuang() {
+    var input = (document.form.nilai.value);
+    var hitunguang = (document.form.uangasing.value);
+
+    var hasil = 0;
+
+    if (hitunguang == "USD") {
+        hasil = input * 9.915;
+    }
+    else if (hitunguang == "SGD") {
+        hasil = input * 13.472;
+    }
+    else if (hitunguang == "MLY") {
+        hasil = input * 0.874;
+    }
+    else if (hitunguang == "EURO") {
+        hasil = input * 15.888;
+    }
+    else if (hitunguang == "RAS") {
+        hasil = input * 3.592;
+    }
+    else {
+        hasil = 0;
+    }
+    document.form.kurs.value = eval(hasil);
+
+}
+    </script>
+
+    <h1>Form Login</h1>
+    <form action="username">
+        <p>Username</p>
+        <input type="Username" id="username">
+        <p>Password</p>
+        <input type="Password" id="password">
+        <button onclick="login()">Masuk</button>
+    </form>
+    
+    <script>
+        function login() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            if (username == "muha21167si" && password == "athena"){
+                alert("Login berhasil!")
+                window.open("http://127.0.0.1:5500/login.html")
+                window.location = "login.html"
+            }else{
+                alert("Login Gagal!")
+            }
+        }
+    </script>
+    
+    <h1>Chat Message</h1>
+    <body style="background: aqua;">
+        <textarea name="" id="chat" cols="30" rows="10"></textarea>
+        
+     
+     
+        <input  type="text" id="input">
+        <button onclick="kirim()">Kirim</button>
+     
+     
+       <script>
+         let message = [];
+         let chat = document.getElementById("chat");
+         let input = document.getElementById("input");
+         let end = 0;
+         function kirim(){
+           message.push(input.value)
+           for (let index = 0; index <= 1; index++) {
+              end += 1
+              document.getElementById("chat").innerHTML = message.join('\n'); 
+              input.value = '' 
+           }
+         }
+       </script>
+
+       <h1>Image Pirker</h1>
+       <div>
+        <select onchange="change()" id="One">
+            <option>Pilih Foto Hp</option>
+            <option value="iphone">Iphone</option>
+            <option value="poco">Poco</option>
+            <option value="realme">Realme</option>
+            <option value="vivo">Vivo</option>
+            <option value="xiaomi">Xioami</option>
+        </select>
+    </div><br>
+        <img src="" alt="" id="Two" width="50%"><br>
+
+<script>
+    function change(){
+        let img = document.getElementById("One").value
+        let image = document.getElementById("Two")
+        if(img == "iphone"){
+           image.src = "iphone.jpg"
+            alert ("Ini HP Iphone!")
+        }else if(img == "poco"){
+            image.src = "poco.jpg" 
+            alert ("Ini HP poco!")
+        }else if(img == "realme"){
+            image.src = "realme.jpg"
+            alert ("Ini HP realme!")
+        }else if(img == "vivo"){
+            image.src = "vivo.jpg"
+            alert ("Ini HP vivo!")
+        }else if(img == "xiaomi") {
+            image.src = "xiaomi.jpg"
+            alert("Ini HP xiaomi!")
+        }    
+    }
+</script>
+    
+</body>
+</html>
